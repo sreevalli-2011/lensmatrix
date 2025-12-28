@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&display=swap');
+
+:root {
+  --overlay: rgba(4, 4, 4, 0.2); /* UPDATED: Lighter overlay (was 0.36) so menu items stand out more */
+  --accent: #ffffff;
+}
+
+/* HERO container */
+.home-hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  font-family: 'Lora', serif;
+}
+
+/* Video */
+.bg-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  filter: brightness(0.8);
+  /* opacity: 0.5; */ /* MOVED to inline style in React for dynamic control */
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: var(--overlay);
+  z-index: 1;
+}
+
+/* INTRO TEXT */
+.center-intro {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+  opacity: 0;
+  z-index: 5;
+  animation: fadeIn 1.3s forwards;
+}
+
+.intro-title {
+  font-size: clamp(2rem, 4vw, 4rem);
+  font-weight: 700;
+  color: white;
+  text-shadow: 0 4px 20px black;
+  margin-bottom: 10px;
+  animation: glowPulse 2.8s infinite ease-in-out;
+}
+
+.intro-sub {
+  font-size: clamp(1.1rem, 2vw, 1.7rem);
+  opacity: 0;
+  animation: fadeInText 1.5s 0.6s forwards;
+}
+
+/* fade in */
+@keyframes fadeIn {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+/* fade out */
+.fade-out {
+  animation: fadeOut 1s forwards;
+}
+
+@keyframes fadeOut {
+  0% {opacity: 1;}
+  100% {opacity: 0;}
+}
+
+/* Text fade for h2 & p */
+@keyframes fadeInText {
+  0% { opacity: 0; transform: translateY(10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Glow animation */
+@keyframes glowPulse {
+  0% { text-shadow: 0 6px 30px rgba(0,0,0,0.6); }
+  50% { text-shadow: 0 8px 40px rgba(255,255,255,0.15); }
+  100% { text-shadow: 0 6px 30px rgba(0,0,0,0.6); }
+}
+
+/* FLOAT MENU ITEMS */
+/* FLOAT MENU ITEMS */
+.float-item {
+  position: absolute;
+  z-index: 10; /* Keeps it above overlay and video */
+  color: white; /* Plain white text color */
+  text-decoration: none; /* Removes underline from links */
+  font-weight: 600;
+  opacity: 0;
+  animation: fadeInMove 1.2s 0.2s forwards; /* Fade-in animation */
+  text-shadow: 0 2px 10px rgba(0,0,0,0.8); /* Subtle shadow for readability on video */
+  transition: opacity 0.3s ease; /* Smooth hover if needed */
+}
+.float-item:hover {
+  opacity: 1; /* Optional: Slight hover effect to make it stand out */
+}
+.float-item, 
+.float-item:visited, 
+.float-item:active, 
+.float-item:hover {
+  color: white !important;
+}
+a {
+  text-decoration: none;
+  color: white;
+  font-size: 30px;
+}
+
+
+.float-item:link, .float-item:visited, .float-item:hover, .float-item:active {
+       color: white !important;
+     }
+.float-item:hover {
+  transform: scale(1.05); /* NEW: Slight hover scale */
+  opacity: 1;
+}
+
+@keyframes fadeInMove {
+  0% { opacity: 0; transform: translateY(10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Floating idle animation */
+@keyframes floatSlow {
+  0% { transform: translateY(0);}
+  50% { transform: translateY(-10px);}
+  100% { transform: translateY(0);}
+}
+
+/* Positions */
+.top-left { top: 12%; left: 6%; animation: floatSlow 6s infinite alternate; }
+.top-right { top: 12%; right: 6%; animation: floatSlow 6s infinite alternate; }
+.center-right { top: 50%; right: 10%; animation: floatSlow 6s infinite alternate; }
+.bottom-right { bottom: 10%; right: 8%; animation: floatSlow 6s infinite alternate; }

@@ -1,0 +1,81 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;600&display=swap');
+
+.custom-navbar {
+  background-color: transparent;
+  padding: 15px 30px;
+}
+
+.logo-img {
+  height: 50px;
+  margin-right: 10px;
+}
+
+.brand-title {
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+.brand-title span {
+  color: #f1c40f;
+}
+
+.nav-link-custom {
+  color: #fff !important;
+  font-weight: 500;
+  margin: 0 10px;
+   font-family: "Lato", sans-serif !important;
+}
+
+.nav-link-custom:hover,
+.nav-link-custom.active {
+  color: #f1c40f !important;
+}
+
+.image-wrapper {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.image-wrapper img {
+  transition: transform 0.4s ease;
+}
+
+.image-wrapper:hover img {
+  transform: scale(1.05);
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.4s ease;
+}
+
+.image-wrapper:hover .overlay {
+  opacity: 1;
+}
+
+.overlay-icon {
+  color: #f1c40f;
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.overlay-text {
+  color: white;
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+.logo-img {
+  height: 80px;             
+  width: auto;              
+  object-fit: contain;      
+  transition: all 0.3s ease; 
+}
